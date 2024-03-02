@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "start": "node index.js",
+    "start_with_pm2": "cross-env NODE_ENV=production pm2 start index.js",
     "lint": "eslint . --ext=.js"
   },
   "keywords": [],
