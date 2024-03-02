@@ -1,0 +1,5 @@
+{
+  "nodeEnv": "production",
+  "port": 3005,
+  "wsPort": 3006
+}

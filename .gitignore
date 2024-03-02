@@ -1,0 +1,32 @@
+server/node_modules
+sdk/node_modules
+server/.env
+server/logs/combined.log
+server/logs/error.log
+server/yarn.lock
+.vscode
+
+sdk/dist
+sdk/yarn.lock
+
+client/node_modules
+client/.pnp
+client/.pnp.js
+
+# testing
+client/coverage
+
+# production
+client/build
+
+# misc
+client/.DS_Store
+client/.env.local
+client/.env.development.local
+client/.env.test.local
+client/.env.production.local
+client/.env
+
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
