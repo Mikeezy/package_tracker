@@ -1,5 +1,6 @@
 {
   "nodeEnv": "production",
   "port": 3005,
-  "wsPort": 3006
+  "wsPort": 3006,
+  "logFilePath": "./logs"
 }
