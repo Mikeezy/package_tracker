@@ -26,7 +26,6 @@ export default function Driver() {
     const { client: packageClient } = usePackage()
     const { client: webSocketClient } = useWebsocket()
     const subscription: any = useRef<any>(null)
-    const timer: any = useRef<any>(null)
 
     useEffect(() => {
         let intervalId: any = null;
@@ -62,9 +61,6 @@ export default function Driver() {
     }, [deliveryDetailsFromWebsocket])
 
     useEffect(() => {
-        console.log("getMyPosition")
-        console.log("deliveryDetails", deliveryDetails)
-
         if (currentLocation.lat && currentLocation.lng && deliveryDetails?.delivery_id && ![DeliveryTypes.DeliveryStatus.DELIVERED, DeliveryTypes.DeliveryStatus.FAILED].includes(deliveryDetails?.status)) {
             webSocketClient.locationChanged({
                 delivery_id: deliveryDetails?.delivery_id,
@@ -112,37 +108,6 @@ export default function Driver() {
             toast.error(`${(error as any)?.message ? (error as any).message : ERROR_MESSAGE}`, { hideProgressBar: true })
         }
         setLoading(false)
-    }
-
-    const onDrag = (e: any) => {
-        if (deliveryDetails?.delivery_id) {
-
-            if (timer?.current) {
-                clearTimeout(timer.current)
-            }
-
-            timer.current = setTimeout(() => {
-                webSocketClient.locationChanged({
-                    delivery_id: deliveryDetails?.delivery_id,
-                    location: {
-                        lat: e.latLng?.lat() ?? 0, lng: e.latLng?.lng() ?? 0
-                    }
-                })
-            }, 500)
-
-        }
-    }
-
-    const isDraggable = (): boolean => {
-        if (deliveryDetails?.delivery_id) {
-            if ([DeliveryTypes.DeliveryStatus.DELIVERED, DeliveryTypes.DeliveryStatus.FAILED].includes(deliveryDetails?.status)) {
-                return false
-            } else {
-                return true
-            }
-        } else {
-            return false
-        }
     }
 
     const getMyPosition = () => {
