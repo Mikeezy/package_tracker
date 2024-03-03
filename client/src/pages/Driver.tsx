@@ -34,7 +34,7 @@ export default function Driver() {
 
             intervalId = setInterval(() => {
                 getMyPosition()
-            }, 5000)
+            }, 20000)
 
             subscription.current = messageService.getMessage().subscribe((message: any) => {
                 switch (message.type) {
@@ -69,7 +69,6 @@ export default function Driver() {
                     lng: currentLocation.lng
                 }
             })
-            console.log("Location updated")
         }
     }, [currentLocation])
 
