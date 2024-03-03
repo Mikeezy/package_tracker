@@ -33,4 +33,6 @@ $ cd server && yarn dev
 
 # start client
 $ cd client && yarn start
+
+#By default, server port = 3005, websocket port = 3006
 ```
