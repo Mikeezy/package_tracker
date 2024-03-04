@@ -19,33 +19,6 @@ export const loadScript = (id: string = "__hh__gma__") => {
     }
 };
 
-export const removeScript = (id: string = "__hh__gma__") => {
-    try {
-        const scripts = document.querySelectorAll("script[src*='maps.googleapis.com/maps-api-v3']");
-        const scriptsPac = document.querySelectorAll("div[class*='pac-container']");
-
-        for (let i = 0; i < scripts.length; i++) {
-            if (scripts[i]) {
-                scripts[i]?.parentNode?.removeChild(scripts[i]);
-            }
-        }
-
-        for (let i = 0; i < scriptsPac.length; i++) {
-            if (scriptsPac[i]) {
-                scriptsPac[i]?.parentNode?.removeChild(scriptsPac[i]);
-            }
-        }
-
-        const scriptCustom = document.getElementById(id);
-
-        if (scriptCustom) {
-            scriptCustom?.parentNode?.removeChild(scriptCustom);
-        }
-    } catch (error) {
-        console.error(error);
-    }
-};
-
 interface GooglePlaceInputProps {
     value: string;
     afterPlaceChange: Function;
