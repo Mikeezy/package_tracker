@@ -4,8 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import usePackage from '../../hooks/usePackage';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../../utils/constant';
 import { toast } from 'react-toastify'
-import GooglePlaceInput from '../../components//GooglePlaceInput';
-import { loadScript } from '../../components//GooglePlaceInput';
+import GooglePlaceInput from '../../components/GooglePlaceInput';
+import { loadScript } from '../../components/GooglePlaceInput';
 
 function AddPackage() {
     const [loading, setLoading] = useState<boolean>(false)
