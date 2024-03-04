@@ -39,10 +39,6 @@ function AddPackage() {
     useEffect(() => {
         //To load google map script
         loadScript()
-        return () => {
-          //To remove google map script
-          removeScript()
-        }
       }, [])
 
     useEffect(() => {
